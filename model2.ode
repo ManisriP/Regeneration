@@ -1,0 +1,22 @@
+par S=0.2
+par beta_hnf=1, delta_hnf=8, whnf_0=0.5, whnf_cycd=-1.2, whnf_sna=-0.2
+par beta_cycd=1, delta_cycd=8, wcycd_0=-0.5, wcycd_myc=1.1
+par beta_sna=1, delta_sna=8, wsna_0=-0.1, wsna_hnf=-1, wsna_sna=1.3
+par beta_myc=1, delta_myc=8,  wmyc_hnf=-0.5
+
+Myc = 1/(1 + exp(-delta_myc*(wmyc_hnf*HNF4A)))
+
+CyclinD = 1/(1 + exp(-delta_cycd*(wcycd_0 + wcycd_myc*Myc)))
+
+
+HNF4A'= beta_hnf*(fhnf - HNF4A)
+
+SNAIL' = beta_sna*(fsna - SNAIL)
+
+fhnf = 1/(1 + exp(-delta_hnf*(-S + whnf_0 + whnf_cycd*CyclinD + whnf_sna*SNAIL)))
+
+fsna = 1/(1 + exp(-delta_sna*(wsna_0 + wsna_hnf*HNF4A + wsna_sna*SNAIL)))
+
+
+
+

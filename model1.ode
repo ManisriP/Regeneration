@@ -1,0 +1,19 @@
+par S=0.2, M=0
+par beta_hnf=1, delta_hnf=8, whnf_0=0.3, whnf_cycd=-1.2
+par beta_cycd=1, delta_cycd=8, wcycd_0=-0.5, wcycd_myc=1.1
+par beta_myc=1, delta_myc=8, wmyc_hnf=-0.5
+
+HNF4A'= beta_hnf*(fhnf - HNF4A)
+
+CyclinD' = beta_cycd*(fcycd - CyclinD)
+
+fhnf = 1/(1 + exp(-delta_hnf*(-S + M + whnf_0 + whnf_cycd*CyclinD)))
+
+Myc = 1/(1 + exp(-delta_myc*(wmyc_hnf*HNF4A)))
+
+fcycd = 1/(1 + exp(-delta_cycd*(wcycd_0 + wcycd_myc*Myc)))
+
+
+
+
+

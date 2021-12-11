@@ -15,7 +15,7 @@ DREM GUI opens. In the Saved Model File menu, enter out_ph_5000.txt(i.e the outp
 
 Further extraction of genes from each path are extracted from the GUI based on the Reference manual of DREM
 
-###### Scripts for WGCNA and input file preparation for DREM analysis are available with the script workflow.R
+###### Scripts for WGCNA and input file preparation for DREM analysis are available within the script workflow.R
 
 ###### "model1.ode" and "model2.ode" correspond to input XPP ode files for mathematical models.
 

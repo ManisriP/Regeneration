@@ -2,9 +2,9 @@
 
 ##### DREM analysis
 Input files: 
-Gene expression file: gse95135_phdrem_5000.txt
-TF-Gene association file:  mouse_predicted.txt.gz
-Arguments setttings file for DREM: gse95135_drem_arg_ph5000.txt
+Gene expression file: gse95135_phdrem_5000.txt;
+TF-Gene association file:  mouse_predicted.txt.gz;
+Arguments setttings file for DREM: gse95135_drem_arg_ph5000.txt;
 
 Running DREM in batch mode: java -mx1024M -jar drem.jar -b gse95135_drem_arg_ph5000.txt out_ph_5000.txt
 

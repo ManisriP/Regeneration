@@ -1,6 +1,12 @@
 par S=0.2
+
+##### HNF4A: Time scale for rate of change, Steepness of soft-heaviside function, Basal coefficient, Coefficient for inhibition of HNF4A by Cyclin D, Coefficient for inhibition of HNF4A by SNAIL
 par beta_hnf=1, delta_hnf=8, whnf_0=0.5, whnf_cycd=-1.2, whnf_sna=-0.2
+
+##### Cyclin D: Time scale for rate of change, Steepness of soft-heaviside function, Basal coefficient, Coefficient for activation of Cyclin D by Myc
 par beta_cycd=1, delta_cycd=8, wcycd_0=-0.5, wcycd_myc=1.1
+
+##### SNAIL: Time scale for rate of change, Steepness of soft-heaviside function, Basal coefficient, Coefficient for inhibition of SNAIL by HNF4A, 
 par beta_sna=1, delta_sna=8, wsna_0=-0.1, wsna_hnf=-1, wsna_sna=1.3
 par beta_myc=1, delta_myc=8,  wmyc_hnf=-0.5
 

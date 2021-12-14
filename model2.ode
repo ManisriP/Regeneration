@@ -18,7 +18,7 @@ par wsna_hnf=-1, wsna_sna=1.3
 
 # Myc
 # Time scale for rate of change, Steepness of soft-heaviside function, Coefficient for inhibition of Myc by HNF4A
-par beta_myc=1, delta_myc=8,  wmyc_hnf=-0.5
+par delta_myc=8,  wmyc_hnf=-0.5
 
 Myc = 1/(1 + exp(-delta_myc*(wmyc_hnf*HNF4A)))
 

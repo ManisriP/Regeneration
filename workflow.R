@@ -12,22 +12,9 @@ library(RColorBrewer)
 library(pheatmap)
 library(EnrichR)
 
-
-aa=read.xlsx2(file="set2_genes.xlsx",sheetIndex = 1)
-bb=read.xlsx2(file="set3_genes.xlsx",sheetIndex = 1)
 dd=read.csv(file="GSE95135_Rib_et_al.RPKM_log2.csv",header = T,sep="\t")
 
 dd[,-c(1:3)]=log2(2^dd[,-c(1:3)] + 1)
-cc=dd[,-c(10:12,29:32)]
-cc=cc[match(c(aa$Ensembl.gene.identifier,bb$Ensembl.gene.identifier),dd$geneid),]
-samplenames=substr(colnames(cc),1,nchar(colnames(cc))-1)[-c(1:3)]
-
-avg_exp=data.frame(GeneName=cc$GeneName)
-for (s in samplenames){
-
-  avg_exp[[paste0(s)]]=apply(cc[,grep(s,colnames(cc))],1,mean)
-}
-
 
 exp=dd[-c(10:17,29:32)]  
 mydata1 <- exp[,-c(2,3)]
@@ -48,7 +35,7 @@ t=lapply(sapply(s, grep, x=colnames(mydata)),
 function(m,n)  mean(as.numeric(m[n])),  m=mydata[j,])
 drem_inp_5000=rbind(drem_inp_5000,(unlist(t)-unlist(t[1]))[-1])
 }
-# drem_inp_5000=cbind(rownames(mydata),drem_inp_5000)
+
 drem_inp_5000=cbind(exp$GeneName[match(rownames(mydata), exp$geneid)],drem_inp_5000)
 colnames(drem_inp_5000)[1]="Probe"
 
@@ -73,7 +60,6 @@ options(stringsAsFactors = FALSE);
 enableWGCNAThreads()
 
 traitData = read.csv("gse95135_traits.tsv", sep = "\t", stringsAsFactors = FALSE);
-exp <- read.csv("gse95135_expression_wgcna.tsv", sep = "\t", header = TRUE, stringsAsFactors = FALSE)
 exp <- read.csv("gse95135_expression_wgcna.tsv", sep = "\t", header = TRUE, stringsAsFactors = FALSE)[-c(10:17,29:32)]
 mydata1 <- exp[,-c(2,3)]
 rownames(mydata1) <- mydata1$geneid
@@ -190,24 +176,7 @@ for (color in module_colors){
   merged_modules[[color]] = exp %>% subset(geneid %in% module) %>% dplyr::select(geneid,GeneName)
   }
 
-### writing adjacency matrices corresponding to every module into cytoscape network 
 
-exportNetworkToCytoscape(TOM[moduleColors != "grey",moduleColors != "grey"],edgeFile="TOM_no_grey_edge_0.1.txt",
-nodeFile="TOM_no_grey_node_0.1.txt", weighted=T, 
-threshold = 0.1,
-nodeNames = colnames(TOM[moduleColors != "grey",moduleColors != "grey"]),
-altNodeNames = exp$GeneName[match(colnames(TOM[moduleColors != "grey",moduleColors != "grey"]),exp$geneid)],
-nodeAttr = moduleColors[moduleColors != "grey"] )
-
-
-
-exportNetworkToCytoscape(adj1[moduleColors != "grey",moduleColors != "grey"],
-edgeFile="adj_no_grey_edge.txt",
-nodeFile="adj_no_grey_node.txt", weighted=T, 
-threshold = 0.1,
-nodeNames = colnames(adj1[moduleColors != "grey",moduleColors != "grey"]),
-altNodeNames = exp$GeneName[match(colnames(adj1[moduleColors != "grey",moduleColors != "grey"]),exp$geneid)],
-nodeAttr = moduleColors[moduleColors != "grey"] )
 
 
 

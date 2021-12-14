@@ -3,7 +3,7 @@ library(xlsx)
 library(openxlsx)
 library(dplyr)
 #library(IRanges)
-#library(matrixStats)
+library(matrixStats)
 #library(RColorBrewer)
 #library(pheatmap)
 #library(EnrichR)
@@ -51,7 +51,7 @@ library(openxlsx)
 library(stringi)
 
 
-# The following setting is important, do not omit.
+
 options(stringsAsFactors = FALSE);
 enableWGCNAThreads()
 
@@ -162,18 +162,4 @@ MEs = orderMEs(MEs0)
 moduleTraitCor = cor(MEs, datTraits, use = "p");            #### Module Eigen gene-trait relationship
 moduleTraitPvalue = corPvalueStudent(moduleTraitCor, nSamples);
 modNames=substring(names(MEs),3)
-
-module_colors = unique(moduleColors)
-merged_modules=vector("list",length(module_colors))
-names(merged_modules)=module_colors
-
-for (color in module_colors){
-  module=SubGeneNames[which(moduleColors==color)]
-  merged_modules[[color]] = exp %>% subset(geneid %in% module) %>% dplyr::select(geneid,GeneName)
-  }
-
-
-
-
-
 

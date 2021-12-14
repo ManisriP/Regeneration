@@ -4,7 +4,7 @@ par S=0.2, M = 0
 # Time scale for rate of change, Steepness of soft-heaviside function, Basal coefficient
 par beta_hnf=1, delta_hnf=8, whnf_0=0.3
 # Coefficient for inhibition of HNF4A by Cyclin D/by proliferatory signal S, Coefficient for activation of HNF4A by compensatory signal M
-whnf_cycd=-1.2, ws_hnf=-1, wm_hnf = 1
+par whnf_cycd=-1.2, ws_hnf=-1, wm_hnf = 1
 
 # Cyclin D 
 # Time scale for rate of change, Steepness of soft-heaviside function, Basal coefficient, Coefficient for activation of Cyclin D by Myc

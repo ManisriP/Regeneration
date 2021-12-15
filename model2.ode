@@ -7,7 +7,7 @@ par beta_hnf=1, delta_hnf=8, whnf_0=0.5
 par whnf_cycd=-1.2, whnf_sna=-0.2, ws_hnf=-1
 
 # Cyclin D
-# Time scale for rate of change, Steepness of soft-heaviside function, Basal coefficient, Coefficient for activation of Cyclin D by Myc
+# Steepness of soft-heaviside function, Basal coefficient, Coefficient for activation of Cyclin D by Myc
 par delta_cycd=8, wcycd_0=-0.5, wcycd_myc=1.1
 
 # SNAIL
@@ -17,7 +17,7 @@ par beta_sna=1, delta_sna=8, wsna_0=-0.1
 par wsna_hnf=-1, wsna_sna=1.3
 
 # Myc
-# Time scale for rate of change, Steepness of soft-heaviside function, Coefficient for inhibition of Myc by HNF4A
+# Steepness of soft-heaviside function, Coefficient for inhibition of Myc by HNF4A
 par delta_myc=8,  wmyc_hnf=-0.5
 
 Myc = 1/(1 + exp(-delta_myc*(wmyc_hnf*HNF4A)))

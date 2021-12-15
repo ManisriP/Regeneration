@@ -161,5 +161,3 @@ MEs = orderMEs(MEs0)
 
 moduleTraitCor = cor(MEs, datTraits, use = "p");            #### Module Eigen gene-trait relationship
 moduleTraitPvalue = corPvalueStudent(moduleTraitCor, nSamples);
-modNames=substring(names(MEs),3)
-

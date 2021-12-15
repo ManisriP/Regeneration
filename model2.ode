@@ -8,7 +8,7 @@ par whnf_cycd=-1.2, whnf_sna=-0.2, ws_hnf=-1
 
 # Cyclin D
 # Time scale for rate of change, Steepness of soft-heaviside function, Basal coefficient, Coefficient for activation of Cyclin D by Myc
-par beta_cycd=1, delta_cycd=8, wcycd_0=-0.5, wcycd_myc=1.1
+par delta_cycd=8, wcycd_0=-0.5, wcycd_myc=1.1
 
 # SNAIL
 # Time scale for rate of change, Steepness of soft-heaviside function, Basal coefficient
